@@ -19,7 +19,7 @@ a { text-decoration: none; }
 
 div { box-sizing:border-box; }
 
-img { /* 图片自适应容器宽度 */
+img {
   width: 100%;
   height: auto;
 }
@@ -43,7 +43,7 @@ body {
 
 .prompt-bar-content {
   position: relative;
-  width: 75%;
+  width: 960px;
   height: 36px;
   margin: 0 auto;
   line-height: 36px;
@@ -73,7 +73,7 @@ body {
 
 /** Begin Head Area **/
 .head-area-content {
-  width: 75%;
+  width: 960px;
   height: 90px;
   margin: 0 auto;
   line-height: 90px;
@@ -137,18 +137,23 @@ body {
 /** End Head Area **/
 
 /** Begin Carousel Area **/
-
 .carousel-area {
+  width: 100%;
+  height: 460px;
+}
+
+.carousel-area ul{
   position: relative;
   width: 100%;
-  min-height: 356px;
 }
 
 .carousel-area li {
   position: absolute;
   width: 100%;
-  height: 464px;
-  background-size: cover;
+}
+
+.carousel-area li img {
+  width: 100%;
 }
 
 /** End Carousel Area **/
@@ -161,7 +166,7 @@ body {
 }
 
 .products-intro-list {
-  width: 75%;
+  width: 960px;
   margin: 0 auto;
   padding-top: 62px;
   font-size: 0px; /* 消除inline-block的间隙 */
@@ -220,6 +225,7 @@ body {
 
 /** Begin Image Display Area **/
 .images-display-area {
+  overflow: hidden;
   width: 100%;
   height: 222px;
 }
@@ -233,8 +239,8 @@ body {
 
 /** Begin Image Display Area **/
 .content {
-  width: 75%;
-  height: 1350px;
+  position: relative;
+  width: 980px;
   margin: 80px auto 120px auto;
 }
 
@@ -248,8 +254,8 @@ body {
   background-color: #fff;
   color: #333;
   cursor: pointer;
-  -webkit-box-shadow: 0.5px 0.5px 2px 0 #cecece;
-          box-shadow: 0.5px 0.5px 2px 0 #cecece;
+  -webkit-box-shadow: 0 2px 2px #ccc;
+          box-shadow: 0 2px 2px #ccc;
 }
 
 .tab-btn.active {
@@ -262,38 +268,47 @@ body {
 }
 
 .course-display-area {
-  float: left;
   margin-top: 32px;
-  width: 81.26%;
+  width: 780px;
 }
 
-
+/* 响应式解决方案 */
 @media (min-width: 1205px) {
 
   .course-display-area li {
-      width: 30.33%;
+     width: 24%;
   }
+  .side-area { width: 19%; }
 
 }
 
 @media (max-width: 1205px) {
 
   .course-display-area li {
-      width: 25%;
+      width: 29.33%;
   }
-
+  .side-area { width: 24.5%; }
+  
+  .images-display-area .last-image {
+    margin-right: -100%; /* 解决了当窗口小于一定宽度时最后一张图片换行的问题 */
+  }
+  
 }
-
 
 .course-item {
   display: inline-block;
   height: 230px;
   overflow: hidden;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  -webkit-box-shadow: 0.5px 0.5px 2px 0 #cecece;
-          box-shadow: 0.5px 0.5px 2px 0 #cecece;
+  margin-bottom: 0.5%;
+  margin-right: 0.5%;
+  -webkit-box-shadow: 0 2px 2px #ccc;
+          box-shadow: 0 2px 2px #ccc;
+}
 
+.course-item:hover {
+  cursor: pointer;
+-webkit-box-shadow: 1px 1px 2px 2px #cecece;
+          box-shadow: 1px 1px 2px 2px #cecece;
 }
 
 .course-item .components {
@@ -301,11 +316,206 @@ body {
 }
 
 .course-item p {
+  white-space: nowrap;
   overflow: hidden;
   padding-bottom: 10px;
   text-overflow: ellipsis;
   font-size: 12px;
 }
+
+.course-item:hover .course-intro {
+  color: #21a557;
+}
+
+.course-tag { color: #bbb; }
+
+.course-price { 
+  color: #ff3f00; 
+  font-weight: bold;
+}
+
+.enroll-people-num-area {
+  display: inline-block;
+  height: 22px;
+  line-height: 18px;
+  margin-bottom: 10px;
+  padding: 0 2px;
+  border: 1px #bbb solid;
+  border-radius: 4px;
+  background: url(../image/user.png) no-repeat 1px 2px;
+}
+
+.enroll-people-num { 
+  font-size: 10px;
+  padding-left: 16px;
+  color: #bbb;
+}
+
+.side-area {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1035px;
+ 
+}
+
+.institution-intro-area {
+  box-sizing:border-box;
+  width: 100%;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 2px 2px #ccc;
+          box-shadow: 0 2px 2px #ccc;  
+}
+
+.side-area h3 {
+  box-sizing:border-box;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #cecece;
+  line-height: 40px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: normal;
+  padding-left: 14px;
+  
+}
+
+.intro-viedo-thumbnail-area {
+  padding: 14px;
+}
+
+.intro-viedo-thumbnail-area img {
+  cursor: pointer;
+}
+
+.intro-viedo-thumbnail-area p {
+  font-size: 14px;
+  color: #666;
+  padding: 10px 0;
+}
+
+.hot-ranking-area {
+  width: 100%;
+  height: 790px;
+ -webkit-box-shadow: 0 2px 2px #ccc;
+          box-shadow: 0 2px 2px #ccc;   
+}
+
+.hot-ranking-list {
+  padding: 14px;
+}
+
+.hot-ranking-item {
+  height: 50px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.hot-ranking-item .img-wrapper { 
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  float: left;
+  margin-right: 12px;
+}
+
+.hot-ranking-item img {
+  width: auto;
+}
+
+.hot-ranking-item .enroll-people-num-area {
+  border: none;
+}
+
+.hot-ranking-item h4 {
+  font-weight: normal;
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.page-nav-area {
+  position: absolute;
+  bottom: -64px;
+  right: 10px;
+}
+
+.page-nav-btn { margin: 0 40px;}
+
+.last-page,
+.next-page {
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 20px;
+  background-color: #9FD7B2;
+  text-align: center;
+  line-height: 20px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.last-page { left: 0 }
+
+.next-page { right: 0;}
+
+.page-nav-btn li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  color: #000;
+  text-align: center;
+  line-height: 20px;
+}
+
+.page-nav-btn .active {
+  background-color: #9FD7B2;
+  color: #fff;
+}
+
+.footer-area {
+  width: 100%;
+  height: 262px;
+  background-color: #2C3339;
+  padding-top: 82px;
+}
+
+.footer-content {
+  width: 960px;
+  margin: 0 auto
+}
+
+.info-list {
+  float: right;
+}
+
+.info-list dl {
+  margin-right: 100px;
+  color: #939699;
+  display: inline-block;
+}
+
+.friend-links a { color: #939699}
+
+.edu-section-info { float: left;}
+
+.edu-section-info .logo {
+  float: none;
+  display: block;
+  color: #21a557;
+  margin-bottom: 26px;
+}
+
+.edu-section-info p {
+  color: #939699;
+  font-size: 12px;
+}
+
+
+
 
 
 
