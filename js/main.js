@@ -105,6 +105,7 @@ var carousel_module = (function(){
     var carousel_indicators = carousel_indicator_area.querySelectorAll('li');
     var len = carousel_indicators.length; 
     var initial_class_of_indicator = carousel_indicators[0].className; 
+    var carousel_state = true; //记录轮播图是否处于自动播放的状态
 
     //初始化当前处于active状态的item与indicator,这里指定为第一个
     carousel_indicators[0].className = initial_class_of_indicator + " active";
@@ -143,7 +144,7 @@ var carousel_module = (function(){
         carousel(targetIndex,currentIndex);
     };
 
-    var beginAutoCarousel = setInterval(autoCarousel,5000); //每隔500ms自动切换
+    var beginAutoCarousel = setInterval(autoCarousel,500); //每隔500ms自动切换
 
     //用户手动切换，点击小圆点切换到对应的图片
     carousel_indicator_area.addEventListener('click',function(e){
@@ -155,11 +156,17 @@ var carousel_module = (function(){
     },false);
 
     carousel_area.onmouseover = function(){
-        clearInterval(beginAutoCarousel);
+        if(carousel_state){
+            clearInterval(beginAutoCarousel);
+            carousel_state = false;   
+        }
     };
 
     carousel_area.onmouseout = function(){
-        setInterval(autoCarousel,5000);
+        if(!carousel_state){
+            beginAutoCarousel = setInterval(autoCarousel,500);
+            carousel_state = true;
+        }
     };
    
 })();
