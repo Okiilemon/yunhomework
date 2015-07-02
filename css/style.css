@@ -34,11 +34,92 @@ body {
        -moz-user-select:none;
 }
 
+::-webkit-input-placeholder { 
+  color:#cecece;
+  font-size: 16px;
+}
+::-moz-placeholder { 
+  color:#cecece;
+  font-size: 16px;
+}
+:-ms-input-placeholder { 
+  color:#cecece;
+  font-size: 16px;
+}
+input:-moz-placeholder { 
+  color:#cecece;
+  font-size: 16px;
+}
+
 /** Begin Prompt Bar **/
+#body-wrapper {
+  overflow: hidden;
+}
+
+.login-area {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.login-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -145px;
+  margin-left: -195px;
+  width: 390px;
+  height: 290px;
+  background-color: #fff;
+  padding: 30px;
+}
+
+.login-area h3 {
+  font-size: 18px;
+  color: #444;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.login-area input {
+  display: block;
+  width: 100%;
+  height: 45px;
+  background-color: #fafafa;
+  border: 1px solid #cecece;
+  color: #333;
+  padding-left: 15px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+#submit-btn {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background-color: #21a557;
+  font-size: 18px;
+  letter-spacing: 5px;
+  text-align:center; 
+  cursor: pointer;
+}
+
+.login-area input:focus {
+  outline: none;
+}
+
 .prompt-bar {
   width: 100%;
   height: 36px;
   background-color: #f3f3f3;
+  transition: .5s;
 }
 
 .prompt-bar-content {
@@ -98,11 +179,12 @@ body {
   overflow: hidden;
 }
 
-.follow-btn {
+.follow-btn,
+.cancel-follow-btn-area {
   display: inline-block;
-  width: 52px;
   height: 20px;
   margin-right: 10px;
+  padding: 0 10px;
   line-height: 20px;
   text-align: center;
   border-radius: 2px;
@@ -110,6 +192,27 @@ body {
   color: #fff;
   font-size: 12px;
   cursor: pointer; 
+}
+
+.cancel-follow-btn-area {
+  display: none;
+  border: 1px solid #EFEFEF;
+  background: #F8F8F8 url(../image/followed-icon.png) no-repeat 0 0;
+  color: #333;
+  cursor: inherit;
+  padding-left: 15px;
+}
+
+.cancel-follow-btn{
+  color: #ccc;
+  padding: 0 5px;
+  border-left: 1px solid #ccc;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.cancel-follow-btn:hover {
+  color: #21a557;
 }
 
 .fans-num-area {
@@ -134,26 +237,55 @@ body {
 .products-link-list li a {
   color: #333;
 }
+
+.products-link-list li a:hover {
+  color: #21a557;
+}
+
 /** End Head Area **/
 
 /** Begin Carousel Area **/
 .carousel-area {
+  position: relative;
   width: 100%;
   height: 460px;
 }
 
-.carousel-area ul{
-  position: relative;
-  width: 100%;
-}
-
-.carousel-area li {
+.carousel-item {
   position: absolute;
+  z-index: -9999;
   width: 100%;
 }
 
-.carousel-area li img {
+.carousel-images img {
+  opacity: 0;
   width: 100%;
+  transition: opacity .5s ease-in-out;
+}
+
+
+
+.carousel-indicators {
+  position: absolute;
+  left: 50%;
+  margin-left: -42px;
+  bottom: 20px;
+  width: 84px;
+  height: 14px;
+  z-index: 10000;
+}
+
+.carousel-indicators li{
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.carousel-indicators li.active {
+  background-color: #000;
 }
 
 /** End Carousel Area **/

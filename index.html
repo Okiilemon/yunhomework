@@ -5,8 +5,18 @@
     <title>网易教育产品部</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body id="body-wrapper">
-    <div >
+<body>
+    <div id="body-wrapper">
+        <div class="login-area">
+            <div class="login-content">
+                <form>
+                    <h3>登录网易云课堂</h3>
+                    <input id="account" type="text" placeholder="账号">
+                    <input id="pwd" type="password" placeholder="密码">
+                    <div id="submit-btn">登录</div>
+                </form>
+            </div>
+        </div>
         <div class="prompt-bar">
             <div class="prompt-bar-content">
                 <p>网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！  
@@ -20,6 +30,7 @@
                 <h1 class="logo"><span class="en-name">EDU</span>网易教育产品部</h1>
                 <div class="follow-fans-area">
                     <div class="follow-btn"><span>+ 关注</span></div>
+                    <div class="cancel-follow-btn-area"><span>已关注</span><span class="cancel-follow-btn">取消</span></div>
                      <div class="fans-num-area">粉丝<span class="num-of-fans">45</span></div>
                 </div>
                 <ul class="products-link-list">
@@ -30,10 +41,15 @@
             </div>
         </div>
         <div class="carousel-area">
-            <ul>
-                <li class="carousel-item three"><img src="image/banner3.jpg"></li>
-                <li class="carousel-item two"><img src="image/banner2.jpg"></li>
+            <ul class="carousel-indicators">
+                <li data-slide-to="0"></li>
+                <li data-slide-to="1"></li>
+                <li data-slide-to="2"></li>
+            </ul>
+            <ul class="carousel-images">
                 <li class="carousel-item"><img src="image/banner1.jpg"></li>
+                <li class="carousel-item"><img src="image/banner2.jpg"></li>
+                <li class="carousel-item"><img src="image/banner3.jpg"></li>
             </ul>
         </div>
         <div class="products-intro-area">
@@ -321,15 +337,6 @@
             </div>
         </div>
     </div>
-    <script>
-        window.onload = function(){
-            /* 轮播图高宽自适应，动态获取自适应后的高度，用这个高度渲染轮播图的容器，否则高度不匹配会影响下面的相邻元素 */
-            var carouselImage = document.querySelector('.carousel-item img');
-            var carouselImageWrapper = document.querySelector('.carousel-area');
-            var rightHeight = window.getComputedStyle(carouselImage,null).getPropertyValue('height');
-            carouselImageWrapper.style.height = rightHeight;
-        };
-
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
