@@ -9,7 +9,7 @@ var EDU = (function(){
 
     //----------   Begin Utilty Method (工具函数) -------------
 
-    function addClass(ele,toBeAddedClass){ //新添加的类以一个字符串的方式给出 'aa bb cc'
+    var addClass = function(ele,toBeAddedClass){ //新添加的类以一个字符串的方式给出 'aa bb cc'
         var toBeAddClassInArr = [];
         toBeAddClassInArr = toBeAddedClass.split(' ');
         var originalClass = ele.className;
@@ -45,7 +45,7 @@ var EDU = (function(){
         }
     }
 
-    function removeClass(ele){
+    var removeClass = function(ele){ //第二个参数是多个需要删除的class items, 例如 'aa','bb','cc'
         var originalClass = ele.className;
         if(!originalClass.length)
             return;
