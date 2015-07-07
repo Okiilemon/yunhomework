@@ -325,6 +325,7 @@ var EDU = (function(){
         var submit_btn = document.querySelector('#submit-btn');
         var follow_btn = document.querySelector('.follow-btn');
         var login_area = document.querySelector('.login-area');
+        var close_btn = login_area.querySelector('.close-btn');
         var cancel_follow_btn = document.querySelector('.cancel-follow-btn-area');
         var num_of_fans_area = document.querySelector('.num-of-fans');
         var num_of_fans = parseInt(num_of_fans_area.innerHTML);
@@ -403,6 +404,9 @@ var EDU = (function(){
                 ajax(url, options);
             }
         };
+        close_btn.onclick = function(){
+            login_area.style.display = 'none';
+        };
     })();
 
     /*
@@ -476,11 +480,11 @@ var EDU = (function(){
     var viedoPlay = (function(){
         var video_thumbnail = document.querySelector('.video-thumbnail');
         var video_container = document.querySelector('.video-area');
-        var video_close_btn = document.querySelector('.video-close-btn');
+        var close_btn = document.querySelector('.video-area .close-btn');
         video_thumbnail.onclick = function(){
             video_container.style.display = "block";
         };
-        video_close_btn.onclick = function(){
+        close_btn.onclick = function(){
             video_container.style.display = "none";
         };
     })();
