@@ -490,9 +490,9 @@ input:-moz-placeholder {
 
 .course-item p {
   white-space: nowrap;
+  text-overflow: ellipsis;
   overflow: hidden;
   padding-bottom: 10px;
-  text-overflow: ellipsis;
   font-size: 12px;
 }
 

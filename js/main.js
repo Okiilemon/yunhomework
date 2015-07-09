@@ -198,7 +198,7 @@ var EDU = (function(){
             page_nav_items = '';
 
         //如果第一个分页按钮的页数不是第一页，就渲染’上一页‘按钮
-        if(startPageIndex != 1){
+        if(startPageIndex !== 1 || currentItemIndex !== 0){
             page_nav_items += last_page_btn_tmpl;
         }
         for(i=0; i<len; i++){
